@@ -20,10 +20,34 @@ a
 .min-100
   min-height: 100vh
 
-.gq-navabar
+.gq-navbar
   border-bottom: 1px solid #cccccc
+  display: block
   .navbar-brand
     font-weight: bold
     padding: 1.1rem
+  .nav-header
+    justify-content: space-between
+    display: flex
+    align-items: center
+  .navbar-burger
+    cursor: pointer
+    padding: 1.1rem
   .nav-link
     padding: 0.5rem
+  .navbar-nav
+    flex-direction: column
+    display: none
+    margin-left: 0.6rem
+    &.navbar-expanded
+      display: flex
+
+@media (min-width: 576px)
+  .mobile
+    display: none
+  .gq-navbar
+    display: flex
+    .navbar-nav
+      display: flex
+      flex-direction: row
+  
