@@ -29,7 +29,7 @@
     <div class="row justify-content-center mt-5">
       <div class="col-12 col-md-9 text-right">
         <nuxt-link
-          v-if="isShow"
+          v-if="isShow && nextId"
           :to="`/question/${nextId}`"
           class="text-primary"
         >
@@ -70,8 +70,10 @@ export default {
       return this.getCountByQuestionId(this.id)
     },
     nextId() {
-      // ?
-      return this.id
+      const currentIdInList = this.sortIdList.indexOf(this.id)
+      if (this.sortIdList.length - 1 > currentIdInList) {
+        return this.sortIdList[currentIdInList + 1]
+      }
     }
   },
   methods: {
